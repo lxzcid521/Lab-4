@@ -1,0 +1,67 @@
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Text;
+
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+Console.WriteLine("Введите число :");
+
+int val = int.Parse(Console.ReadLine());
+
+Console.WriteLine(becomesPalindrom(val, out val));
+
+Console.WriteLine(val);
+
+Console.ReadKey();
+
+}
+
+public static bool becomesPalindrom(int val, out int result)
+
+{
+
+int length = (int)Math.Log10(val);
+
+result = val * 10 + (val / (int)Math.Pow(10, length++));
+
+for (int i = 1; i < length / 2; i++)
+
+{
+
+if ((int)(result / Math.Pow(10, i)) % 10 !=
+
+(int)(result / Math.Pow(10, length - 1)) % 10)
+
+{
+
+result = val;
+
+return false;
+
+}
+
+}
+
+return true;
+
+}
+
+}
+
+}
